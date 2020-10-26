@@ -10,13 +10,21 @@
  * @return {number}
  */
 var maxSubArray = function(nums) {
-    let preSum = nums[0]
-    let max_so_far = nums[0]
+    let pre = nums[0]
+    let result = nums[0]
     for(let i=1;i<nums.length;i++) {
-        if(preSum+num[i]<=num[i]) {
-            max_so_far = num[i]
+        if(pre+nums[i]<=nums[i]) {
+            pre = nums[i]
+        } else {
+            pre = pre + nums[i]
         }
+        result = Math.max(result,pre)
     }
+    return result
 };
 // @lc code=end
 
+
+// @after-stub-for-debug-begin
+module.exports = maxSubArray;
+// @after-stub-for-debug-end
