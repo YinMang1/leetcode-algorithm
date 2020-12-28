@@ -17,26 +17,26 @@
  * @return {number}
  */
 var maxDepth = function(root) {
-  // if(!root) {
-  //   return 0
-  // } else {
-  //   const left = maxDepth(root.left)
-  //   const right = maxDepth(root.right)
-  //   return Math.max(left,right) +1
-  // }
-  if(!root) return 0
-  const stack = [root]
-  let level = 1
-  while(stack.length >0) {
-    const  length = stack.length
-    for(let i =0;i<length;i++) {
-    const cur = stack.shift()
-    cur.left && stack.push(cur.left)
-    cur.right && stack.push(cur.right)
-    }
-    stack.length>0 && level++
+  if(!root) {
+    return 0
+  } else {
+    const left = maxDepth(root.left)
+    const right = maxDepth(root.right)
+    return Math.max(left,right) +1
   }
-  return level
+  // if(!root) return 0
+  // const stack = [root]
+  // let level = 1
+  // while(stack.length >0) {
+  //   const  length = stack.length
+  //   for(let i =0;i<length;i++) {
+  //   const cur = stack.shift()
+  //   cur.left && stack.push(cur.left)
+  //   cur.right && stack.push(cur.right)
+  //   }
+  //   stack.length>0 && level++
+  // }
+  // return level
 };
 // @lc code=end
 
